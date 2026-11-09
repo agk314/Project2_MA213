@@ -11,4 +11,6 @@ df %>%
   group_by(Major_category) %>%
   summarise(weighted_avg = weighted.mean(score, weight))
 
+#weight should be the 'total' column, num of students in that major. 
+
 #not sure what the weight should be - it should be by total number of students sampled in the major
