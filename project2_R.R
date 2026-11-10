@@ -7,10 +7,6 @@ df$high_salary <- ifelse(df$Median >= high_salary_cutoff, TRUE, FALSE)
 #Generates category means (of the major median incomes within a category, weighted by the relative frequency of each major in the category)
 
 df %>%
-  filter(!is.na(Median), !is.na(weight)) %>%
+  filter(!is.na(Median), !is.na(Sample_size)) %>%
   group_by(Major_category) %>%
-  summarise(weighted_avg = weighted.mean(score, weight))
-
-#weight should be the 'total' column, num of students in that major. 
-
-#not sure what the weight should be - it should be by total number of students sampled in the major
+  summarise(weighted_avg = weighted.mean(Median, Sample_Size))
