@@ -44,7 +44,9 @@ anova_df <- df %>%
 fit <- aov(Median ~ Major_category, data = anova_df)
 summary(fit)
 
-#Contingency table? 
+#Some kind of table for ANOVA result? 
+
+#Something with unemployment rates, stacked bar graph? 
 
 
 
