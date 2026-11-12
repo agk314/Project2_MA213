@@ -4,6 +4,24 @@ high_salary_cutoff <- 50000
 #Feedback questioned the value of 50k, we can change it 
 df$high_salary <- ifelse(df$Median >= high_salary_cutoff, TRUE, FALSE)
 
+#Categorical Data Analysis
+
+#Chi-Squared test of independence for employment vs. category of major - 
+
+contingency_table <- xtabs(cbind(Employed, Unemployed) ~ Major_category, data = df)
+#xtabs generates a contingency table. 
+#the variable to the right of the tilde (in this case Major_category, specifies what to use for the rows)
+#the variable to the left of the tilde specifies that we are using these two columns
+#data = df tells as to use our current data frame, the file recent-grads.csv we are analyzing 
+
+chisq.test(contingency_table)
+
+#add row and column totals
+table_with_sums <- addmargins(contingency_table)
+
+#access the table to view it - previous code only gives results 
+print(table_with_sums)
+
 #Numerical Data Analysis
 
 #Generates category means (of the major median incomes within a category, 
